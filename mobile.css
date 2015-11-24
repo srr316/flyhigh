@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+ @media screen and (max-width: 480px) {
+      body {
+         font-family: "Comic Sans MS", cursive, sans-serif;
+         background-color: #edd9c0;
+      }
+      
+      #header{
+         background-color:#7d4627;
+         color: white;
+      }
+      
+      #footer{
+         background-color:rgba(0, 0, 0, 0.1);
+         color: white;
+         
+      }
+      
+      #offers{
+         background-color:#a8b6bf;
+         color: black;
+      }
+      div.itineraries{
+         background-color:#a8b6bf;
+         color: black;
+      }
+    }  
