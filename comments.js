@@ -20,15 +20,17 @@ function handleButtonClick() {
     var comment = textInput.value;
     if(document.getElementById("commentChoice").checked){
        var radioValue = document.getElementById("commentChoice");
-    }
+    	}
     else if(document.getElementById("commentChoice1").checked = true){
         var radioValue = document.getElementById("commentChoice1");
-     }
+     	}
     	if(radioValue.value == "traveler"){
     		var name = prompt("please enter your name", "Anonymous");
     		var li = document.createElement("li");
     		li.setAttribute("id","test");
             li.innerHTML = name + " - " + comment + " <input type='button' onclick='removeComment()' id='deleteButton' value='Delete'>";
+            li.innerHTML += "Here is the location of the commenter" + "<input type='button' id='mapButton' onclick='getMyLocation()' value='Show Location'>";
+            
             var ul = document.getElementById("commentlist");
             ul.appendChild(li);
             save(comment);
@@ -43,3 +45,4 @@ function handleButtonClick() {
     
     
 }
+

@@ -46,7 +46,7 @@ var ourCoords = {
     longitude: -52.52099
 };
 
-function displayLocation(position) {
+ function displayLocation(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
     
@@ -58,19 +58,19 @@ function displayLocation(position) {
     distance.innerHTML = "You are " + km + " km from the WickedlySmart HQ";
     
     showMap(position.coords);
-}
+} 
 
 var map;
 
 function showMap(coords) {
     var googleLatAndLong = new google.maps.LatLng(coords.latitude, coords.longitude);
     var mapOptions = {
-    zoom: 10,
+    zoom: 5,
     center: googleLatAndLong,
     mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var mapDiv = document.getElementById("map");
+    var mapDiv = document.getElementById("test");
     map = new google.maps.Map(mapDiv, mapOptions);
     
     var title = "Your Location";
