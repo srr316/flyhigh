@@ -88,7 +88,7 @@
         background-color:#fae596;
         margin: 0px 0px 10px 20px;
         padding:10px;	  
-        width: 730px;  
+        width: 1500px;  
         background-color:rgba(500, 950, 420, 0.4); 
         clear: both; 
     }
@@ -98,7 +98,7 @@
         background-color:#fae596;
         margin: 0px 0px 10px 20px;
         padding:10px;	  
-        width: 730px;  
+        width: 750px;  
         background-color:rgba(500, 950, 420, 0.4);  
     }
 
@@ -160,6 +160,7 @@
         -moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
         box-shadow: 0 0 1px rgba(0,0,0, .75);    
     }
+    
     
     ul#commentlist {
         padding: 10px;
