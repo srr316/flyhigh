@@ -2,14 +2,14 @@
 #review_form {
 	
 	font-weight: bold;
-	  border-radius: 25px;
-        line-height:30px;
-        background-color:#fae596;
-        margin: 10px 0px 20px 10px;
-        padding:15px;	  
-        width: 1500px;
-        float: left;  
-        background-color:rgba(500, 950, 420, 0.4);  
+	border-radius: 25px;
+    line-height:30px;
+    background-color:#fae596;
+    margin: 10px 0px 20px 10px;
+    padding:15px;	  
+    width: 1500px;
+    float: left;  
+    background-color:rgba(500, 950, 420, 0.4);  
 }
 #head3{
 	float:right;
@@ -68,15 +68,15 @@ textarea#review_body {
 	
 
 .review {
-		font-weight: bold;
-	  border-radius: 25px;
-        line-height:30px;
-        background-color:#fae596;
-        margin: 10px 0px 20px 10px;
-        padding:15px;	  
-        width: 1030px;
-        float: left;
-        background-color:rgba(500, 950, 420, 0.4);  
+	font-weight: bold;
+	border-radius: 25px;
+    line-height:30px;
+    background-color:#fae596;
+    margin: 10px 0px 20px 10px;
+    padding:15px;	  
+    width: 1030px;
+    float: left;
+    background-color:rgba(500, 950, 420, 0.4);  
 }
 
 .review, .reply {

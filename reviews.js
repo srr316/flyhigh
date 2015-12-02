@@ -1,8 +1,3 @@
-/**
- * Fall 2015 CS3715 Assignment 3 - Rick Kelly, Shreya Biswas
- */
-
-
 var currentPosition = {}; //holds the user's location as soon as page is loaded
 var reviews = []; //holds reviews and deleted reviews in reverse chronological order
 var lastUpdateTime = new Date(); //last time the reviews were refreshed
