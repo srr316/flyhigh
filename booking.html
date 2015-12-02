@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Booking</title>
+	<link rel="stylesheet" type="text/css" media="all" href="itinerarystylebooking.css"/>
+</head>
+<body>
+	<div id="header">
+		<h1>Make a Booking</h1>	
+	</div>
+	
+	
+	<div id="main">
+		<form action="" id="booking_trip">
+			<div id="destination">
+				<h2>Choose Destination</h2>
+				<p><i> Please select your destination: </i> </p>
+				<span>Destination:</span>
+				<select id="destination_options" name="destination" >
+					<option value=""> Select your Destination.. </option> 
+					<option value="Egypt" />Egypt</option>
+					<option value="Cuba" />Cuba</option>
+					<option value="Hawaii" />Hawaii</option>
+					<option value="England" />England</option>	
+				</select>
+				
+				</br>
+				</br>
+				
+				<span>Date:</span>
+				</br>
+				From:
+				<select id="day_options_from" name="date">
+					<option value="">Day </option>
+				</select>
+				<select id="month_options_from" name="date">
+					<option value="">Month</option>
+				</select>
+				<select id="year_options_from" name="date">
+					<option value="">Year</option>
+				</select>
+				
+				</br>
+				To:      
+				<select id="day_options_to" name="date">
+					<option value="">Day </option>
+				</select>
+				<select id="month_options_to" name="date">
+					<option value="">Month</option>
+				</select>
+				<select id="year_options_to" name="date">
+					<option value="">Year</option>
+				</select>
+			</div>	
+			
+			<div id="tourist_info">
+				<h2>Tourist Information</h2>
+				<p><i>Please fill out some personal information</i><p>
+				First Name:
+				<input type="text" name="firstName" id="firstName" />
+				</br>
+				Last Name:
+				<input type="text" name="lastName" id="lastName" />
+				</br>
+				
+				Number of Travelers:
+				<select id="group_size">
+					<option value="1" >1</option>
+					<option value="2" >2</option>
+					<option value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="..">..</option>
+				</select>
+				
+				Postal Code:
+				<input type="text" name="postalCode" id="postalCode" />
+				
+			</div>
+			
+			<div id="payment">
+				<h2>Payment Information</h2>
+				<p><i>Please select the payment method</i><p>
+				
+				Billing Country:
+				<select id="country_info">
+					<option value="1" />Canada</option>
+					<option value="2" />Germany</option>
+					<option value="3" />USA</option>
+				</select>
+				</br>
+				
+				Credit Card:
+				<select id="card_info">
+					<option value="1" />VISA</option>
+					<option value="2" />Mastercard</option>
+					<option value="3" />American Express</option>
+				</select>
+				</br>
+				
+				Cardholder:
+				<input type="text" name="card_holder" id="card_holder" />
+				</br>
+				
+				Card Number:
+				<input type="text" name="card_number" id="card_number" />
+				</br>
+				
+				Securtiy Code:
+				<input type="text" name="security_code" id="security_code" />
+				</br>
+				</br>
+				<input type="submit" value="Make Booking" />	
+			</div>
+		</form>	
+	</div>
+	
+	<div id="footer">
+        <h3>Copyright © Group A</h3>
+        <a href="index.html">BACK</a>
+    </div>
+	
+
+</body>
+</html>

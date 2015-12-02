@@ -1,0 +1,144 @@
+
+#review_form {
+	
+	font-weight: bold;
+	  border-radius: 25px;
+        line-height:30px;
+        background-color:#fae596;
+        margin: 10px 0px 20px 10px;
+        padding:15px;	  
+        width: 1500px;
+        float: left;  
+        background-color:rgba(500, 950, 420, 0.4);  
+}
+#head3{
+	float:right;
+	font-size:10px;
+}
+#form_left {
+	margin: 5px;
+	padding: 0px 10px;
+	float: left;
+	width: 40%
+}
+#form_right {
+	margin: 5px;
+	padding: 0px 10px;
+	float: right;
+	width: 40%
+}
+
+#reply_select {
+	margin: 5px;
+	padding: 0px 10px;
+	min-width: 100px;
+}
+
+textarea#review_body {
+	width: 40%;
+	height: 150px;
+	border: 1px solid #cccccc;
+	padding: 5px;
+	float:left;
+}
+
+#review_submit {
+	margin: 5px;
+	padding: 0px 10px;
+	margin: 10px 5px;
+	padding: 10px 10px;	
+}
+
+#error {
+	font-weight: bold;
+	color: white;
+	float: right;
+}
+
+.review, .deleted_review, .reply, .deleted_reply {
+	margin: 5px;
+	padding: 0px 10px;
+	border: 1px solid black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	word-wrap: break-word;
+	
+	
+}
+	
+
+.review {
+		font-weight: bold;
+	  border-radius: 25px;
+        line-height:30px;
+        background-color:#fae596;
+        margin: 10px 0px 20px 10px;
+        padding:15px;	  
+        width: 1030px;
+        float: left;
+        background-color:rgba(500, 950, 420, 0.4);  
+}
+
+.review, .reply {
+	min-height: 250px;
+	
+}
+
+.reply {
+	clear: both;
+	
+}
+.deleted_review{
+	font-weight: bold;
+	  border-radius: 25px;
+        line-height:30px;
+        background-color:#fae596;
+        margin: 10px 0px 20px 10px;
+        padding:15px;	  
+        width: 1030px;
+        float: left;
+        background-color:rgba(500, 950, 420, 0.4);  
+}
+#completedel{
+		font-weight: bold;
+	  border-radius: 25px;
+        line-height:30px;
+        background-color:#fae596;
+        margin: 10px 0px 20px 10px;
+        padding:15px;	  
+        width: 1500px;
+        float: left;
+        background-color:rgba(500, 950, 420, 0.4);
+}
+
+.location {
+	margin: 5px;
+	padding: 0px 10px;
+	
+}
+
+.map {
+	margin-bottom: 10px;
+	height: 200px;
+	width: 250px;
+	border: 1px solid white;
+	
+	
+}
+
+.review p, .reply p, .deleted_review p, .deleted_reply p {
+	font-weight: bold;
+	
+}
+.review blockquote, .reply blockquote {
+	font-style: Aerial;
+	
+}
+.reply, .deleted_reply {
+	margin-left: 20%;
+	
+}
+.reply h3, .reply p, .reply blockquote, .deleted_reply h3, .deleted_reply p, .deleted_reply blockquote {
+	color: #FF5050;
+	
+}
