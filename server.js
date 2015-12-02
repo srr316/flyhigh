@@ -6,12 +6,10 @@ var http = require("http");
 var url = require("url");
 
 function start(route, handle) {
-	var logTime = new Date();
 	function onRequest(request, response) {
-		var logTime = new Date();
 		var postData = "";
 		var pathname = url.parse(request.url).pathname;
-		console.log(logTime.toLocaleString() + ": Server request for " + pathname + " received.");
+		console.log("Server request for " + pathname + " received.");
 		
 		request.setEncoding("utf8");
 		
@@ -26,7 +24,7 @@ function start(route, handle) {
 	}
 
 	http.createServer(onRequest).listen(3331);
-	console.log(logTime.toLocaleString() + ": Server has started on port 3331.");
+	console.log("Server has started on port 3331.");
 }
 
 exports.start = start;
