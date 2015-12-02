@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-8">
+        <title>Egypt</title>
+        <link rel="stylesheet" type="text/css" media="all" href="itinerarystyle.css"/>
+		<script src="reviews.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<link href="style.css" rel="stylesheet" />
+        
+        <script src="comments.js"></script>
+        <script src="storage.js"></script>
+        
+        <!-- Google Maps import -->
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="maps.js"></script>
+         
+    </head>
+    
+<body>
+
+    <div id="header">
+        <h1>Itinerary Egypt</h1>
+        <a href="egypt2.jpg">
+            <img src="images/egypt2.jpg" border="" height="100" width="100" alt="Egypt" />
+            </a>
+        <a href="egypt3.jpg">
+            <img src="images/egypt3.jpg" border="" height="100" width="100" alt="Egypt" />
+        </a>
+        <a href="egypt4.jpg">
+            <img src="images/egypt4.jpg" border="" height="100" width="100" alt="Egypt" />
+        </a> 
+    </div>
+    
+    <div id="rates">
+        <h1>Available Dates</h1>
+        <p>10.01.16-12.08.16</p>
+        <a href="booked.html">Book</a>
+        
+        <p>10.01.16-12.08.16</p>
+        <a href="booked.html">Book</a>
+        
+        <p>10.01.16-12.08.16</p>
+        <a href="booked.html">Book</a>
+    </div>
+    
+    <div id="tripsummary">
+        <h1>Egypt Trip</h1>
+        <p>Take a week to explore the mysteries of the pyramids in this exclusive deal. </p>
+        <p>Cairo’s an ancient city that also happens to be a modern metropolis—</p>
+        <p>it’s one of the biggest cities in the Middle East and has the traffic and noise issues to prove it.</p> 
+        <p>But as long as you’re not looking for solitude,</p> 
+        <p>Cairo—the City of the Thousand Minarets— </p>
+        <p>is a splendid place to explore Egyptian history and culture.</p>
+        <p>Book now for only $999.99!</p>
+    </div>
+    
+    <div id="program">
+        <h1>Program</h1>
+        <ul>
+            <li>Arrival</li>
+            <li>Great Lake</li>
+            <li>Fairy</li>
+        </ul>
+    </div>
+
+    <div id="services">
+        <div id="servicesincl">
+            <h1>Services included</h1>
+            <ul>
+                <li>Flight YYT -JNB</li>
+                <li>3* Hotel Johannesburg</li>
+                <li>Enactus Event</li>
+                <li>World Cup Ticket!</li>
+            </ul>
+        </div>
+        
+        <div id="servicesexcl">
+            <h1>Services excluded</h1>
+            <ul>
+                <li>Food in the airplane</li>
+                <li>Tips</li>
+                <li>Transport</li>
+                <li>Meals</li>
+            </ul>
+        </div>
+    </div>
+	
+			<div id="review_form">
+			
+			<div id="form_left">
+		
+				<label>Name: <input id="review_name" type="text" name="name"></label> <br />
+				<br/>
+				<label>Subject: <input id="review_subject" type="text" name="subject"></label>
+			
+			
+				<label>Manager: <input type="radio" id = "manager" name="userType" value="manager"></label>
+				<label>Reply to:
+					<select id="reply_select">
+					</select>
+				</label>
+				<br />
+				<label>Traveller: <input type="radio" id ="traveller" name="userType" value="traveller"></label>
+				<br />
+				<label>Stars: 1 <input type="radio" id ="star_1" name="starCount" value="1"></label>
+				<label>2 <input type="radio" id ="star_2" name="starCount" value="2"></label>
+				<label>3 <input type="radio" id ="star_3" name="starCount" value="3"></label>
+				<label>4 <input type="radio" id ="star_4" name="starCount" value="4"></label>
+				<label>5 <input type="radio" id ="star_5" name="starCount" value="5"></label>
+			
+			
+			<br>
+			<br>
+			<br>
+			<textarea id="review_body" name="Review"></textarea><br>
+			
+			<input id="review_submit" type="button" value="Submit">
+			<p id="error"></p>
+		<br>
+		
+		
+		
+		<h2>Reviews</h2>
+	
+		<div id="reviews">	
+			
+		</div>
+		
+		
+		<hr />
+		
+		<h2>Deleted Reviews</h2>
+		<div id="deleted_reviews">	
+		
+		</div>
+	</div>
+	</div>
+    
+
+</body>
+</html>
