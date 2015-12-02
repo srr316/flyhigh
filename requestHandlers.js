@@ -10,7 +10,7 @@ var lastUpdateTime = new Date();
 //handles POST requests
 function handlePost(pathname, response, postData) {
 	var logTime = new Date();
-	console.log(logTime.toLocaleString() + ": Handling POST request: " + pathname);
+	console.log("Handling POST request: " + pathname);
 	
 	//handle review/reply submissions
 	if (pathname === "/submit") {

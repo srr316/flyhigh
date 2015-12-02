@@ -1,4 +1,4 @@
-var currentPosition = {}; //holds the user's location as soon as page is loaded
+var currentPosition = {}; //default location
 var reviews = []; //holds reviews and deleted reviews in reverse chronological order
 var lastUpdateTime = new Date(); //last time the reviews were refreshed
 var interval = window.setInterval(checkFreshnessRequest, 10000);
