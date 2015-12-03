@@ -1,7 +1,6 @@
 @CHARSET "ISO-8859-1";
 
 @CHARSET "UTF-8";
- 
     
     body{
        background-color:#3fb0ac ; 
@@ -80,6 +79,17 @@
         width: 730px;
         float: right;  
         background-color:rgba(500, 950, 420, 0.4);  
+    }
+
+	#feedbackForm {
+        border-radius: 25px;
+        line-height:30px;
+        background-color:#fae596;
+        margin: 0px 0px 10px 20px;
+        padding:10px;	  
+        width: 1500px;  
+        background-color:rgba(500, 950, 420, 0.4); 
+        clear: both; 
     }
     
     #comments {
@@ -217,6 +227,44 @@
         padding:5px;
         clear: both;
         background-color:rgba(0, 0, 0, 0.1);
+    }
+    
+    #main {
+        border-radius: 25px;
+        line-height:30px;
+        background-color:#173e43;
+        margin: 10px;
+        padding: 20px;	   
+        background-color:rgba(0, 0, 0, 0.2);  
     } 
+    
+    #destination {
+        border-radius: 25px;
+        line-height:30px;
+        background-color:#fae596;
+        margin: 0px 0px 10px 20px;
+        padding:10px;	  
+        background-color:rgba(500, 950, 420, 0.4); 
+        clear: both; 
+    }
+    
+    #tourist_info {
+        border-radius: 25px;
+        line-height:30px;
+        background-color:#fae596;
+        margin: 0px 0px 10px 20px;
+        padding:10px;	  
+        background-color:rgba(500, 950, 420, 0.4); 
+        clear: both; 
+    }
+    
+    #payment {
+        border-radius: 25px;
+        line-height:30px;
+        background-color:#fae596;
+        margin: 0px 0px 10px 20px;
+        padding:10px;	  
+        background-color:rgba(500, 950, 420, 0.4); 
+        clear: both; 
+    }  
 }
-
