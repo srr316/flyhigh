@@ -1,32 +1,51 @@
-var currentPosition = {}; //holds the user's location as soon as page is loaded
-var reviews = []; //holds reviews and deleted reviews in reverse chronological order
-var lastUpdateTime = new Date(); //last time the reviews were refreshed
-var interval = window.setInterval(checkFreshnessRequest, 10000);
+var currentPosition = {};
+var reviews = [];
+var lastUpdateTime = new Date(); 
+var interval = window.setInterval(checkFreshnessRequest, 5000);
 
 var sortFunctions = {};
-sortFunctions.dateAscending = function(a, b) {
-	return b.date - a.date;
-};
-sortFunctions.dateDescending = function(a, b) {
+
+
+var sortFunction = function(a, b) {
 	return a.date - b.date;
 };
-sortFunctions.ratingAscending = function(a, b) {
-	return b.stars - a.stars;
-};
-sortFunctions.ratingDescending = function(a, b) {
-	return a.stars - b.stars;
-};
-
-var sortFunction = sortFunctions.dateDescending;
 
 document.addEventListener( "DOMContentLoaded", init, false )
+
+
+function Review(name, subject, date, body, location, stars, country) {
+	this.name = name;
+	this.subject = subject;
+	this.date = date;
+	this.body = body;
+	this.location = location;
+	this.stars = stars;
+	this.country = country;
+	this.deleted = false;
+	this.reply = null;
+}
+
+
+function Reply(name, subject, date, body, location, reviewID) {
+	this.name = name;
+	this.subject = subject;
+	this.date = date;
+	this.body = body;
+	this.location = location;
+	this.reviewID = reviewID;
+}
+
+
+
+
+
 
 function checkFreshnessRequest() {
 	var now = new Date();
 	var url = "refresh?time=" + now.getTime();
 	var request = new XMLHttpRequest();
 	request.open("GET", url, true);
-	request.onreadystatechange = function() {//Call a function when the state changes.
+	request.onreadystatechange = function() {
 		if(request.readyState == 4 && request.status == 200) {
 			if (parseInt(request.responseText) > lastUpdateTime.getTime()) {
 				downloadReviewRequest();
@@ -40,7 +59,7 @@ function deleteReviewRequest(id) {
 	var url = "delete";
 	var request = new XMLHttpRequest();
 	request.open("POST", url, true);
-	request.onreadystatechange = function() {//Call a function when the state changes.
+	request.onreadystatechange = function() {
 		if(request.readyState == 4 && request.status == 200) {
 			downloadReviewRequest();
 		}
@@ -52,7 +71,7 @@ function uploadReviewRequest(review) {
 	var url = "submit";
 	var request = new XMLHttpRequest();
 	request.open("POST", url, true);
-	request.onreadystatechange = function() {//Call a function when the state changes.
+	request.onreadystatechange = function() {
 	    if(request.readyState == 4 && request.status == 200) {
 	    	downloadReviewRequest();
 	    }
@@ -65,7 +84,7 @@ function downloadReviewRequest() {
 	var url = "download?time=" + now.getTime();
 	var request = new XMLHttpRequest();
 	request.open("GET", url, true);
-	request.onreadystatechange = function() {//Call a function when the state changes.
+	request.onreadystatechange = function() {
 	    if(request.readyState == 4 && request.status == 200) {
 	        reviews = JSON.parse(request.responseText);
 	        lastUpdateTime = new Date();
@@ -75,56 +94,32 @@ function downloadReviewRequest() {
 	request.send(null);
 }
 
-//Initial page setup
 function init(event) {
 	getMyLocation();
 	downloadReviewRequest();
 	var button = document.getElementById("review_submit");
 	button.onclick = submitReview;
 	
-	var newest = document.getElementById("dateDesc");
-	newest.onclick = function() {
-		sortFunction = sortFunctions.dateDescending;
-		refreshReviews();
-	}
-	
-	var oldest = document.getElementById("dateAsc");
-	oldest.onclick = function() {
-		sortFunction = sortFunctions.dateAscending;
-		refreshReviews();
-	}
-	
-	var highest = document.getElementById("ratingDesc");
-	highest.onclick = function() {
-		sortFunction = sortFunctions.ratingDescending;
-		refreshReviews();
-	}
-	
-	var lowest = document.getElementById("ratingAsc");
-	lowest.onclick = function() {
-		sortFunction = sortFunctions.ratingAscending;
-		refreshReviews();
-	}
+
 }
 
 function refreshReviews() {
-	
-	//remove all reviews:
+
 	var reviewsDiv = document.getElementById("reviews");
 	while (reviewsDiv.firstChild) {
 		reviewsDiv.removeChild(reviewsDiv.firstChild);
 	}
 	
-	//remove all deleted reviews
+
 	var deletedReviewsDiv = document.getElementById("deleted_reviews");
 	while (deletedReviewsDiv.firstChild) {
 		deletedReviewsDiv.removeChild(deletedReviewsDiv.firstChild);
 	}
 	
-	//sort reviews
+
 	reviews.sort(sortFunction);
 	
-	//display all reviews and deleted reviews with replies
+	
 	var country = document.getElementsByTagName("body")[0].id;
 	
 	for (var i = reviews.length - 1; i >= 0; i--) {
@@ -137,22 +132,16 @@ function refreshReviews() {
 			}
 		}
 	}
-	
-	//fill list of reviews that can be replied to:
 	populateReplyList();
-	
-	//clear timer and reset to 10 seconds:
 	window.clearInterval(interval);
 	interval = window.setInterval(checkFreshnessRequest, 10000);
 }
 
-//handles clicking of delete button.
 function deleteReview(elemId) {	
 	var id = elemId.substring(7);
 	deleteReviewRequest(id);
 }
 
-//handle when Review is submitted
 function submitReview() {
 	var name = document.getElementById("review_name").value;
 	var subject = document.getElementById("review_subject").value;
@@ -160,24 +149,28 @@ function submitReview() {
 	var stars = getStars();
 	var now = new Date();
 	var reviewIndex = getReviewIdFromList();
-	
-	//error checking:
+
 	if (name == "" || subject == "" || reviewBody == "") {
-		document.getElementById("error").innerHTML = "Please fill all text fields.";
+		alert("Please fill the text fields for name, destination and review");
 		return;
 	}
 	else if (!document.getElementById("manager").checked && !document.getElementById("traveller").checked) {
-		document.getElementById("error").innerHTML = "Please select traveller or manager.";
+		alert("Please choose the check box for traveller/manager");
 		return;
 	}
 	else if (document.getElementById("traveller").checked && stars == 0) {
-		document.getElementById("error").innerHTML = "Please give a ranking.";
+		alert("Give some rating, BUD!!");
 		return;
 	}
 	else if (document.getElementById("manager").checked && reviewIndex == -1) {
-		document.getElementById("error").innerHTML = "There are no reviews available to reply to.";
+		alert("Who are you replying to, Bud?");
 		return;
 	}
+	else if (Review.name == name.getReviewIdFRomList) {
+		alert("User already exists, please select another name");
+		return;
+	}
+	
 	
 	var country = document.getElementsByTagName("body")[0].id;
 	
@@ -197,39 +190,36 @@ function submitReview() {
 	
 }
 
-//returns number of stars selected
 function getStars() {
+	var s1='\u2606';
 	if (document.getElementById("star_1").checked) {
-		return 1;
+		return s1+s1+s1+s1+s1;
 	}
 	else if (document.getElementById("star_2").checked) {
-		return 2;
+		return s1+s1+s1+s1;
 	}
 	else if (document.getElementById("star_3").checked) {
-		return 3;
+		return s1+s1+s1;
 	}
 	else if (document.getElementById("star_4").checked) {
-		return 4;
+		return s1+s1;
 	}
 	else if (document.getElementById("star_5").checked) {
-		return 5;
+		return s1;
 	}
 	else {
-		return 0; //if no stars selected
+		return 0; 
 	}
 }
 
-//returns index of review selected from manager reply-to list
+
 function getReviewIdFromList() {
-	//retrieve index of review selected in drop-down list for manager posts
 	var selectionIndex = document.getElementById("reply_select").selectedIndex;
 	
-	//return -1 if there are no reviews in the list
+	
 	if (selectionIndex == -1) {
 		return selectionIndex;
 	}
-	
-	//return index of chosen review
     var id = document.getElementsByTagName("option")[selectionIndex].id;
     for (var i = 0; i < reviews.length; i++) {
     	if (reviews[i].date.toString() == id.substring(7)) {
@@ -238,7 +228,7 @@ function getReviewIdFromList() {
     }
 }
 
-//creates list for reviews that a manager can reply to
+
 function populateReplyList() {
 	var selectList = document.getElementById("reply_select");
 	
@@ -250,27 +240,29 @@ function populateReplyList() {
 	for (var i = reviews.length - 1; i >= 0; i--) {
 		if (reviews[i].deleted == false && reviews[i].reply == null && reviews[i].country == country) {
 			var option = document.createElement("option");
-			option.innerHTML = reviews[i].subject;
+			option.innerHTML = reviews[i].name;
 			option.id = "option_" + reviews[i].date.toString();
 			selectList.appendChild(option);
 		}
 	}
 }
 
-//builds the DOM tree for a review in HTML
+
 function buildReview(reviewDiv, review, reply) {
-	
+	var time = new Date(review.date);
+	var nameAndDate1= document.createElement("h5")
+	nameAndDate1.innerHTML= "  This was posted on : "+ time.toLocaleString();
+	nameAndDate1.className="nameanddate";
+	reviewDiv.appendChild(nameAndDate1);
 	var location = document.createElement("div");
 	location.className = "location";
-	
-	
-	
 	var locationMap = document.createElement("div");
 	locationMap.className = "map";
 	location.appendChild(locationMap);
-	
+        var div2= document.createElement("div");
+	div2.className= "rating";
 	var deleteButton = document.createElement("button");
-	deleteButton.innerHTML = "Click here to delete this Review";
+	deleteButton.innerHTML = "Delete";
 	var delId = "delete_" + review.date.toString();
 	deleteButton.id = delId;
 	deleteButton.addEventListener("click", function(){
@@ -278,19 +270,17 @@ function buildReview(reviewDiv, review, reply) {
 	});
 	
 	location.appendChild(deleteButton);
-	
 	reviewDiv.appendChild(location);
-	//uses deleted review code since a deleted review has a subset of a normal review's data
+	reviewDiv.appendChild(div2);
 	buildDeletedReview(reviewDiv, review, reply);
 	
 	showMap(review.location, locationMap);
 }
 
-//build DOM tree for a deleted review
+
 function buildDeletedReview(reviewDiv, review, reply) {
 	
 	var subject = document.createElement("h3");
-	
 	var subjectHTML ="Review by : " +review.name + "<br>";
 	if (!reply) {
 		subjectHTML += "   Ratings: " + review.stars + "";
@@ -300,23 +290,18 @@ function buildDeletedReview(reviewDiv, review, reply) {
 
 	reviewDiv.appendChild(subject);
 	
-	var time = new Date(review.date);
 	var nameAndDate = document.createElement("p");
-	nameAndDate.innerHTML = "Destination: " +"<br>" + review.subject + "<br>"+  "<br>";
-	var nameAndDate1= document.createElement("p1")
-	nameAndDate1.innerHTML= "  And this was posted on : "+ time.toLocaleString();
+	nameAndDate.innerHTML = "Destination: " + review.subject +  "<br>";
 	
 	reviewDiv.appendChild(nameAndDate);
-	reviewDiv.appendChild(nameAndDate1);
 	var body = document.createElement("blockquote");
-	body.innerHTML = "Review: " + review.body;
+	body.innerHTML = review.name+ " says: " + review.body;
 	reviewDiv.appendChild(body);
 }
 
-//determines if a review has a reply, and builds it accordingly
 function displayReview(review) {
 	
-	var reviewDiv = document.createElement("div");
+	var reviewDiv = document.createElement("h4");
 	reviewDiv.className = "review";
 	reviewDiv.id = "review_" + review.date.toString();
 	
@@ -334,7 +319,6 @@ function displayReview(review) {
 	}
 }
 
-//determines if a deleted review has a reply and builds it accordingly
 function displayDeletedReview(review) {
 	
 	var deletedReviewDiv = document.createElement("div");
@@ -353,25 +337,4 @@ function displayDeletedReview(review) {
 	deletedReviewsDiv.appendChild(deletedReviewDiv);	
 }
 
-//Review Constructor
-function Review(name, subject, date, body, location, stars, country) {
-	this.name = name;
-	this.subject = subject;
-	this.date = date;
-	this.body = body;
-	this.location = location;
-	this.stars = stars;
-	this.country = country;
-	this.deleted = false;
-	this.reply = null;
-}
 
-//Reply Constructor
-function Reply(name, subject, date, body, location, reviewID) {
-	this.name = name;
-	this.subject = subject;
-	this.date = date;
-	this.body = body;
-	this.location = location;
-	this.reviewID = reviewID; //actually the date of the review in ms
-}
