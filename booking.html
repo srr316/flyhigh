@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="mobile.css" />
+<script>
+function myFunction(){
+var i ="'1443'";
+alert("Your booking has been saved! Your reference number is "+i);
+i++;
+}
+
+
+</script>
 	<meta charset="ISO-8859-1">
 	<title>Booking</title>
 	<link rel="stylesheet" type="text/css" media="all" href="itinerarystyle.css"/>
@@ -111,13 +121,13 @@
 				<input type="text" name="security_code" id="security_code" />
 				</br>
 				</br>
-				<input type="submit" value="Make Booking" />	
+				<input type="submit" value="Make Booking" onClick='myFunction()'/>	
 			</div>
 		</form>	
 	</div>
 	
 	<div id="footer">
-        <h3>Copyright © Group A</h3>
+        <h3>Copyright Â© Group A</h3>
         <a href="index.html">BACK</a>
     </div>
 	
