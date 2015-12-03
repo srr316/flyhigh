@@ -5,7 +5,7 @@
         <title>Cuba</title>
         <link rel="stylesheet" type="text/css" media="all" href="itinerarystyle.css"/>
         <link type="text/css" rel="stylesheet" href="style.css">
-  
+     <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="mobile.css" />
         <!-- Google Maps import -->
         <script src="http://maps.googleapis.com/maps/api/js"></script>
         <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
@@ -89,49 +89,64 @@
     <br>
 	<br>
 	<div id="review_form">
-		<h2>Reviews</h2>
-		<p id="reviewHeader"> Don't forget to write us a testimonial!</p>
-			<label>Name: <input id="review_name" type="text" name="name"></label> <br />
-			<br/>
-			<label>Destination: <input id="review_subject" type="text" name="subject"></label>
-		
-			<label>Reply to:
-				<select id="reply_select">
-				</select>
-			</label>
-			<br />
-			<label><input type="radio" id ="traveller" name="userType" value="traveller">Traveller</label>
-			<br />
-			<label><input type="radio" id = "manager" name="userType" value="manager">Manager</label>
-			<br />
-			<label>Ratings: 1 <input type="radio" id ="star_1" name="starCount" value="1"></label>
-			         <label>2 <input type="radio" id ="star_2" name="starCount" value="2"></label>
-			         <label>3 <input type="radio" id ="star_3" name="starCount" value="3"></label>
-			         <label>4 <input type="radio" id ="star_4" name="starCount" value="4"></label>
-			         <label>5 <input type="radio" id ="star_5" name="starCount" value="5"></label>
-		<br><br>
-		<textarea id="review_body" name="Review"></textarea>
-		<input id="review_submit" type="button" value="Submit">
-		<p id="error"></p>
-		<p1>
-		
-		</p1>
-	
-		<div id="reviews">	
-		
-		</div>
-	</div>
-		
-	<div id="completedel">
-		<h2>Deleted Reviews</h2>
-		<div id="deleted_reviews">	
-	
-		</div>
-	</div>
+			<h2>Comments</h2>
+			<p id="reviewHeader"> Tell us what you thought!</p>
+				<label>Name: <input id="review_name" type="text" name="name"></label> <br />
+				<br/>
+				<label>Guest: <input type="radio" id ="traveller" name="userType" value="traveller"></label>
+				<br>
+				<label>Destination: <input id="review_subject" type="text" name="subject"></label>
+				<br>
+			<br>
+			
+				<label>Manager : <input type="radio" id = "manager" name="userType" value="manager"></label>
+				<br>
+				<label>Name:
+					<select id="reply_select">
+					</select>
+				</label>
+				<br>
+				<br>
+				<label> Rate your trip:</label> 
+				<br />
 
-    <div id="footer">
-        <h3>Copyright © Group A</h3>
-        <a href="index.html">BACK</a>
-    </div>
+				      
+				<div class="numStars">
+					
+					<input name="rating" type="radio" value="1"id ="star_1" /><span>&#9734;</span>
+					<input name="rating" type="radio" value="2"id ="star_2" /><span>&#9734;</span>
+					<input name="rating" type="radio" value="3"id ="star_3" /><span>&#9734;</span>
+					<input name="rating" type="radio" value="4"id ="star_4" /><span>&#9734;</span>
+					<input name="rating" type="radio" value="5"id ="star_5" /><span>&#9734;</span>
+					
+				</div>
+				         
+				         
+				         
+			<br><br>
+			<textarea id="review_body" name="Review"></textarea>
+			<input id="review_submit" type="button" value="Submit">
+			<p id="error"></p>
+			<p1>
+			
+			</p1>
+		
+		
+		
+		
+		
+		
+		<div id="reviews">	
+			
+		</div>
+		</div>
+		
+		<div id="completedel">
+			<h2>Deleted Comments</h2>
+			<div id="deleted_reviews">	
+		
+			</div>
+		</div>
+
 </body>
 </html>
