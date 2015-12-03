@@ -218,3 +218,79 @@ textarea#review_body {
 	color: #FF5050;
 	
 }
+
+
+@media screen and (max-width: 992px) {
+      body {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        background-color: #edd9c0;
+      }
+      #header{
+         background-color:#7d4627;
+         color: white;
+      }
+      
+      #footer{
+         background-color:#7d4627;
+         color: white;
+      }
+      
+      #rates{
+         background-color:#a8b6bf;
+         color: black;
+         
+      }
+      
+      #tripsummary{
+         background-color:#a8b6bf;
+         color: black;
+      }
+      
+      #program{
+         background-color:#a8b6bf;
+         color: black;
+      }
+      
+      #servicesincl{
+         background-color:#a8b6bf;
+         color: black;
+      }
+      
+      #servicesexcl{
+         background-color:#a8b6bf;
+         color: black;
+      }
+      
+      #services{
+          margin: 10px;
+      }
+      
+      #comments{
+         margin: 10px;
+         background-color:#a8b6bf;
+         color: black;
+      }
+      
+      #review_form{
+      	margin: 10px;
+         background-color:#a8b6bf;
+         color: black;
+      }
+      
+      #completedel{
+      	margin: 10px;
+         background-color:#a8b6bf;
+         color: black;
+      }
+      
+      div.itineraries{
+      	margin: 10px;
+         background-color:#a8b6bf;
+         color: black;
+      }
+      
+      div.nav-block{
+      	margin: 10px;
+         background-color:#a8b6bf;
+         color: black;
+      }
