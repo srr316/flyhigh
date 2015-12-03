@@ -283,7 +283,7 @@ function buildReview(reviewDiv, review, reply) {
 	//uses deleted review code since a deleted review has a subset of a normal review's data
 	buildDeletedReview(reviewDiv, review, reply);
 	
-	displayMap(review.location, locationMap);
+	showMap(review.location, locationMap);
 }
 
 //build DOM tree for a deleted review
