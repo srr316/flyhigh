@@ -7,26 +7,7 @@ function getMyLocation() {
 	}
 }
 
-//puts user's location in global variable
-function storeLocation(position) {
-	if (!position) {
-		//set default position if no geolocation support.
-		currentPosition.latitude = 0;
-		currentPosition.longitude = 0;
-		return;
-	}
-	currentPosition.latitude = position.coords.latitude;
-	currentPosition.longitude = position.coords.longitude;
-}
-
-
-//displays coordinates, given coordinates
-function displayLocation(coords) {
-	return "Lat: " + coords.latitude.toFixed(2) + ", Long: " + coords.longitude.toFixed(2);
-}
-
-//displays map, given coordinates and div id.
-function displayMap(coords, elem) {
+function showMap(coords, elem) {
 	var googleLatAndLong = new google.maps.LatLng(coords.latitude, coords.longitude);
 	
 	var mapOptions = {
@@ -36,13 +17,16 @@ function displayMap(coords, elem) {
 	};
 	
 	var map = new google.maps.Map(elem, mapOptions);
-	var title = "Reviewer's Location";
-	var content = "Reviewer was here: " + coords.latitude + ", " + coords.longitude;
+	var title = "Your Location";
+	var content = "You were here: " + coords.latitude + ", " + coords.longitude;
 	addMarker(map, googleLatAndLong, title, content);
 	
-}	
+}
 
-//puts marker on map (off-centered currently?) 
+function showLocation(coords) {
+	return "Lat: " + coords.latitude.toFixed(2) + ", Long: " + coords.longitude.toFixed(2);
+}
+
 function addMarker(map, latlong, title, content) {
 	var markerOptions = {
 		position: latlong,
@@ -63,4 +47,14 @@ function addMarker(map, latlong, title, content) {
 	google.maps.event.addListener(marker, "click", function() {
 		infoWindow.open(map);
 	});
+}
+
+function storeLocation(position) {
+	if (!position) {
+		currentPosition.latitude = 0;
+		currentPosition.longitude = 0;
+		return;
+	}
+	currentPosition.latitude = position.coords.latitude;
+	currentPosition.longitude = position.coords.longitude;
 }
